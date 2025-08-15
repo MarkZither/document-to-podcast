@@ -70,6 +70,26 @@ pip install -e .
 python -m streamlit run demo/app.py
 ```
 
+## Manual setup
+
+## Getting Started
+It is strongly recommended to use a Python virtual environment for development and running this project.
+
+1. Create and activate a virtual environment:
+   ```powershell
+   python -m venv .venv
+   .venv\Scripts\Activate
+   ```
+
+2. Install dependencies:
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+3. Run the app:
+   ```powershell
+   streamlit run demo/streamlit_app.py
+
 
 ## License
 
