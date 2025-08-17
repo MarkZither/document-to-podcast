@@ -1,20 +1,34 @@
+from pytest_mock import MockerFixture
+
 from document_to_podcast.preprocessing.data_loaders import (
-    load_pdf,
     load_txt,
-    load_docx,
+    load_file,
     load_url,
 )
 
 
-def test_load_pdf(example_data):
-    result = load_pdf(example_data / "Mozilla-Trustworthy_AI.pdf")
+def test_load_pdf(example_data, mocker: MockerFixture):
+    file_path = example_data / "Mozilla-Trustworthy_AI.pdf"
+
+    # Create mock file using Mock
+    mock_file = mocker.Mock()
+    mock_file.name = file_path.name
+    mock_file.getvalue.return_value = open(file_path, "rb").read()
+
+    result = load_file(mock_file)
+
     assert (
         "a Mozilla white paper on challenges and opportunities in the AI era" in result
     )
 
 
-def test_load_invalid_pdf():
-    result = load_pdf("invalid.pdf")
+def test_load_invalid_pdf(mocker: MockerFixture):
+    # Create mock file using Mock
+    mock_file = mocker.Mock()
+    mock_file.name = "invalid.pdf"
+    mock_file.getvalue.return_value = b""
+    result = load_file(mock_file)
+
     assert result is None
 
 
@@ -33,15 +47,27 @@ def test_load_invalid_html():
     assert result is None
 
 
-def test_load_docx(example_data):
-    result = load_docx(example_data / "Mozilla-Trustworthy_AI.docx")
+def test_load_docx(example_data, mocker: MockerFixture):
+    file_path = example_data / "Mozilla-Trustworthy_AI.docx"
+
+    # Create mock file using Mock
+    mock_file = mocker.Mock()
+    mock_file.name = file_path.name
+    mock_file.getvalue.return_value = open(file_path, "rb").read()
+    result = load_file(mock_file)
+
     assert (
         "a Mozilla white paper on challenges and opportunities in the AI era" in result
     )
 
 
-def test_load_invalid_docx():
-    result = load_docx("invalid.docx")
+def test_load_invalid_docx(mocker: MockerFixture):
+    # Create mock file using Mock
+    mock_file = mocker.Mock()
+    mock_file.name = "invalid.docx"
+    mock_file.getvalue.return_value = b""
+    result = load_file(mock_file)
+
     assert result is None
 
 

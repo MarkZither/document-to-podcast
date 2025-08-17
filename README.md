@@ -13,6 +13,8 @@ This makes it more accessible and privacy-friendly by keeping everything local.
 
 <img src="./images/document-to-podcast-diagram.png" width="1200" alt="document-to-podcast Diagram" />
 
+📘 To explore this project further and discover other Blueprints, visit the [**Blueprints Hub**](https://developer-hub.mozilla.ai/blueprints/create-your-own-tailored-podcast-using-your-documents).
+
 ## Example Results
 
 - [Introducing Blueprints](https://blog.mozilla.ai/introducing-blueprints-customizable-ai-workflows-for-developers/)
@@ -67,6 +69,26 @@ pip install -e .
 ```bash
 python -m streamlit run demo/app.py
 ```
+
+## Manual setup
+
+## Getting Started
+It is strongly recommended to use a Python virtual environment for development and running this project.
+
+1. Create and activate a virtual environment:
+   ```powershell
+   python -m venv .venv
+   .venv\Scripts\Activate
+   ```
+
+2. Install dependencies:
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+3. Run the app:
+   ```powershell
+   streamlit run demo/streamlit_app.py
 
 
 ## License

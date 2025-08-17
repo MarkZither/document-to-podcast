@@ -62,7 +62,7 @@ def gen_button_clicked():
 
 st.title("Document To Podcast")
 
-st.header("Upload a File")
+st.header("Uploading Data")
 
 uploaded_file = st.file_uploader(
     "Choose a file", type=["pdf", "html", "txt", "docx", "md"]
