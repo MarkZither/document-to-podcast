@@ -163,7 +163,23 @@ cython_debug/
 
 # Generated audio files
 *.wav
+*.mp3
 
 # VS files
 .vscode
 .DS_Store
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.csproj.user
+packages/
+
+# Output directories
+output/
+*-output/
+*-test/
+temp/
+models/
